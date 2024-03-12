@@ -3,7 +3,6 @@ const express = require('express')
 const app = express();
 const port = 3000;
 const bodyParser = require('body-parser');
-// const teams = require('./data/teams')
 
 // Require routes from routes folder
 const teamRoutes = require('./routes/teamRoutes')

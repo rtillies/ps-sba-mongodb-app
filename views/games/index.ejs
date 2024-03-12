@@ -7,16 +7,16 @@
     <title>EJS Demo</title>
 </head>
 <body>
-  <h1>Teams</h1>
+  <h1>Games</h1>
 
     <ul>
-      <% teams.forEach((team)=>{
+      <% games.forEach((game)=>{
           %>
             <li>
-              <a href=<%= team.ID %>>
-                <%= team.TeamName %>
+              <a href=<%= game.ID %>>
+                <%= game.date %>:
+                <%= game.homeTeam %> vs <%= game.awayTeam %>
               </a> 
-                (<%= team.Wins %>-<%= team.Loss %>)
               </li>
           <%
       }) %>
