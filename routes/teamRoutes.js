@@ -3,8 +3,6 @@ const server = express()
 const router = express.Router()
 const teams = require('../data/teams')
 
-// server.set("view engine", "pug")
-
 // GET: read all teams
 router.get('/', (req, res) => {
   // res.send('GET: read all teams')
