@@ -7,8 +7,13 @@
     <title>EJS Demo</title>
 </head>
 <body>
-  <h1>EJS Template</h1>
-    <h2>Cheese: <%= cheese %></h2>
-    <h2>Bread: <%= bread %></h2>
+  <h1>Teams</h1>
+
+    <ul>
+      <% teams.forEach((team)=>{
+          %>
+              <li><%= team.TeamName %></li>
+          <%
+      }) %>
 </body>
 </html>

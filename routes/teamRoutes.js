@@ -8,7 +8,8 @@ const teams = require('../data/teams')
 // GET: read all teams
 router.get('/', (req, res) => {
   // res.send('GET: read all teams')
-  res.json(teams)
+  // res.json(teams)
+  res.render('index', {teams})
 })
 
 // POST: create new team
