@@ -7,6 +7,7 @@ const bodyParser = require('body-parser');
 // Require routes from routes folder
 const teamRoutes = require('./routes/teamRoutes')
 const gameRoutes = require('./routes/gameRoutes')
+const confRoutes = require('./routes/confRoutes')
 
 
 /* DATABASE CONNECTION */
@@ -23,6 +24,7 @@ app.use(express.static("./styles"));
 // Use Router Middleware - 
 app.use('/api/teams', teamRoutes)
 app.use('/api/games', gameRoutes)
+app.use('/api/conferences', confRoutes)
 
 // specify the views directory
 // register the template engine
