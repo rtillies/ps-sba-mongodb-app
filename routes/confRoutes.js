@@ -53,17 +53,17 @@ router.get('/:id', (req, res) => {
 // PATCH: update conferences by id
 router.patch('/:id', (req, res) => {
   // res.send(`PATCH: update conference by id ${req.params.id}`)
-  // const game = games.find((g, i) => {
-  //   if (g.id == req.params.id) {
-  //     for (const key in req.body) {
-  //       games[i][key] = req.body[key];
-  //     }
-  //     return true;
-  //   }
-  // });
+  const conf = conferences.find((c, i) => {
+    if (c.id == req.params.id) {
+      for (const key in req.body) {
+        conferences[i][key] = req.body[key];
+      }
+      return true;
+    }
+  });
 
-  // if(game) res.json(game)
-  // else next();
+  if(conf) res.json(conf)
+  else next();
 })
 
 // DELETE: delete conference by id
