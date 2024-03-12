@@ -49,31 +49,32 @@ router.get('/:id', (req, res) => {
 
 // PATCH: update game by id
 router.patch('/:id', (req, res) => {
-  res.send(`PATCH: update game by id ${req.params.id}`)
-  // const team = teams.find((t, i) => {
-  //   if (t.ID == req.params.id) {
-  //     for (const key in req.body) {
-  //       teams[i][key] = req.body[key];
-  //     }
-  //     return true;
-  //   }
-  // });
-  // if(team) res.json(team)
-  // else next();
+  // res.send(`PATCH: update game by id ${req.params.id}`)
+  const game = games.find((g, i) => {
+    if (g.id == req.params.id) {
+      for (const key in req.body) {
+        games[i][key] = req.body[key];
+      }
+      return true;
+    }
+  });
+
+  if(game) res.json(game)
+  else next();
 })
 
 // DELETE: delete game by id
 router.delete('/:id', (req, res) => {
-  res.send(`DELETE: delete game by id ${req.params.id}`)
-  // const game = games.find((t, i) => {
-  //   if (t.ID == req.params.id) {
-  //     games.splice(i, 1);
-  //     return true;
-  //   }
-  // });
+  // res.send(`DELETE: delete game by id ${req.params.id}`)
+  const game = games.find((g, i) => {
+    if (g.id == req.params.id) {
+      games.splice(i, 1);
+      return true;
+    }
+  });
 
-  // if(game) res.json(game)
-  // else next();
+  if(game) res.json(game)
+  else next();
 })
 
 module.exports = router;
