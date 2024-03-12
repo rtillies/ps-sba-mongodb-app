@@ -8,10 +8,12 @@
 </head>
 <body>
   <h1><%= team.TeamName %></h1>
-  <h2><%= team.Conference %> Conference</h2>
-  <p><strong>Players</strong>: <%= team.Captain %> and <%= team.Teammate %></p>
-  <p><strong>Location</strong>: <%= team.City %>, <%= team.State %></p>
-  <p><strong>Record</strong>: <%= team.Wins %>-<%= team.Loss %></p>
+  <ul>
+    <li><strong><%= team.Conference %></strong>  Conference</li>
+    <li><strong>Players</strong>: <%= team.Captain %> and <%= team.Teammate %></li>
+    <li><strong>Location</strong>: <%= team.City %>, <%= team.State %></li>
+    <li><strong>Record</strong>: <%= team.Wins %>-<%= team.Loss %></li>
+  </ul>
   
 </body>
 </html>
