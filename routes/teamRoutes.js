@@ -47,7 +47,17 @@ router.get('/:id', (req, res) => {
 
 // PATCH: update team by id
 router.patch('/:id', (req, res) => {
-  res.send(`PATCH: update team by id ${req.params.id}`)
+  // res.send(`PATCH: update team by id ${req.params.id}`)
+  const team = teams.find((t, i) => {
+    if (t.ID == req.params.id) {
+      for (const key in req.body) {
+        teams[i][key] = req.body[key];
+      }
+      return true;
+    }
+  });
+  if(team) res.json(team)
+  else next();
 })
 
 // DELETE: delete team by id
