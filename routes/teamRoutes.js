@@ -61,8 +61,17 @@ router.patch('/:id', (req, res) => {
 })
 
 // DELETE: delete team by id
-router.get('/:id', (req, res) => {
-  res.send(`DELETE: delete team by id ${req.params.id}`)
+router.delete('/:id', (req, res) => {
+  // res.send(`DELETE: delete team by id ${req.params.id}`)
+  const team = teams.find((t, i) => {
+    if (t.ID == req.params.id) {
+      teams.splice(i, 1);
+      return true;
+    }
+  });
+
+  if(team) res.json(team)
+  else next();
 })
 
 module.exports = router;
