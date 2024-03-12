@@ -9,40 +9,31 @@ router.get('/', (req, res) => {
   res.render('conferences/index', {conferences})
 })
 
-// POST: create new game
+// POST: create new conference
 router.post('/', (req, res, next) => {
-  res.send('POST: create new conference')
-  // if(req.body.code && req.body.date && req.body.homeTeam && req.body.awayTeam && req.body.homeScore && req.body.awayScore) {
-  //   if (games.find((g) => g.code == req.body.code)) {
-  //     res.json({ error: `Game code already exists: ${g.code}` })
-  //     return
-  //   }
-  //   const winner = req.body.homeScore > req.body.awayScore 
-  //     ? req.body.homeTeam
-  //     : req.body.awayTeam
-
-  //   const newGame = {
-  //     id: games[games.length - 1].id + 1,
-  //     code: req.body.code,
-  //     date: req.body.date,
-  //     homeTeam: req.body.homeTeam,
-  //     awayTeam: req.body.awayTeam,
-  //     homeScore: req.body.homeScore,
-  //     awayScore: req.body.awayScore,
-  //     winner: winner
-  //   }
-  //   games.push(newGame)
-  //   console.log(`Successful POST: ${newGame.id} ${newGame.homeTeam} vs ${newGame.awayTeam}`);
-  //   res.json(games[games.length - 1])
-  // } else {
-  //   res.json({ error: 'Insufficient Data'})
-  // }
+  // res.send('POST: create new conference')
+  if(req.body.name && req.body.description) {
+    if (conferences.find((c) => c.name == req.body.name)) {
+      res.json({ error: `Conference already exists: ${c.name}` })
+      return
+    }
+    const newConf = {
+      id: conferences[conferences.length - 1].id + 1,
+      name: req.body.name,
+      description: req.body.description
+    }
+    conferences.push(newConf)
+    console.log(`Successful POST: ${newConf.id} ${newConf.name}`);
+    res.json(conferences[conferences.length - 1])
+  } else {
+    res.json({ error: 'Insufficient Data'})
+  }
 })
 
 // GET: read conference by id
 router.get('/:id', (req, res) => {
   // res.send(`GET: read conference by id ${req.params.id}`)
-  const conf = confs.find((c) => c.id == req.params.id)
+  const conf = conferences.find((c) => c.id == req.params.id)
   if(conf) {
     res.json(conf)
     // res.render('conferences/conf', {conf});
