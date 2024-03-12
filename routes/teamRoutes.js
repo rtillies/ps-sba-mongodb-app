@@ -7,7 +7,7 @@ const teams = require('../data/teams')
 router.get('/', (req, res) => {
   // res.send('GET: read all teams')
   // res.json(teams)
-  res.render('index', {teams})
+  res.render('teams/index', {teams})
 })
 
 // POST: create new team
@@ -42,7 +42,7 @@ router.get('/:id', (req, res) => {
   // res.send(`GET: read team by id ${req.params.id}`)
   const team = teams.find((t) => t.ID == req.params.id)
   if(team) {
-    res.render("team", {team});
+    res.render("teams/team", {team});
     // res.render("team", {
     //   name: team.TeamName,
     //   conf: team.Conference,
