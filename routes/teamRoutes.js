@@ -38,7 +38,11 @@ router.post('/', (req, res, next) => {
 
 // GET: read team by id
 router.get('/:id', (req, res) => {
-  res.send(`GET: read team by id ${req.params.id}`)
+  // res.send(`GET: read team by id ${req.params.id}`)
+  const team = teams.find((t) => t.ID == req.params.id)
+  if(team) res.json(team)
+  else next();
+
 })
 
 // PATCH: update team by id
