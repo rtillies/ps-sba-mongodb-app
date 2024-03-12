@@ -1,7 +1,7 @@
 const teams = [
   {
     "ID": 1,
-    "Team Name": "VA Ballerz",
+    "TeamName": "VA Ballerz",
     "Conference": "South",
     "Captain": "Professor",
     "Teammate": "Omar",
@@ -12,7 +12,7 @@ const teams = [
   },
   {
     "ID": 2,
-    "Team Name": "JQ Suited",
+    "TeamName": "JQ Suited",
     "Conference": "South",
     "Captain": "Janet",
     "Teammate": "Quin",
@@ -23,7 +23,7 @@ const teams = [
   },
   {
     "ID": 3,
-    "Team Name": "Star Studded",
+    "TeamName": "Star Studded",
     "Conference": "South",
     "Captain": "Reece",
     "Teammate": "Dee",
@@ -34,7 +34,7 @@ const teams = [
   },
   {
     "ID": 4,
-    "Team Name": "That Couple",
+    "TeamName": "That Couple",
     "Conference": "South",
     "Captain": "That Dude",
     "Teammate": "That Chick",
@@ -45,7 +45,7 @@ const teams = [
   },
   {
     "ID": 5,
-    "Team Name": "Gerow Animals",
+    "TeamName": "Gerow Animals",
     "Conference": "North",
     "Captain": "Chad",
     "Teammate": "Junbug",
@@ -56,7 +56,7 @@ const teams = [
   },
   {
     "ID": 6,
-    "Team Name": "Team Bui",
+    "TeamName": "Team Bui",
     "Conference": "North",
     "Captain": "Daniel",
     "Teammate": "Tiffani",
@@ -67,7 +67,7 @@ const teams = [
   },
   {
     "ID": 7,
-    "Team Name": "Jerzeys Finest",
+    "TeamName": "Jerzeys Finest",
     "Conference": "North",
     "Captain": "Marcus",
     "Teammate": "Sniper",
@@ -78,7 +78,7 @@ const teams = [
   },
   {
     "ID": 8,
-    "Team Name": "Knuck If You Stuck",
+    "TeamName": "Knuck If You Stuck",
     "Conference": "North",
     "Captain": "Aceito",
     "Teammate": "Deborah",
