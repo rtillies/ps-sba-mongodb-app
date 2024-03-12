@@ -44,16 +44,17 @@ router.get('/:id', (req, res) => {
   // res.send(`GET: read team by id ${req.params.id}`)
   const team = teams.find((t) => t.ID == req.params.id)
   if(team) {
-    res.render("team", {
-      name: team.TeamName,
-      conf: team.Conference,
-      captain: team.Captain,
-      teammate: team.Teammate,
-      city: team.City,
-      state: team.State,
-      wins: team.Wins,
-      loss: team.Loss,
-    })
+    res.render("team", {team});
+    // res.render("team", {
+    //   name: team.TeamName,
+    //   conf: team.Conference,
+    //   captain: team.Captain,
+    //   teammate: team.Teammate,
+    //   city: team.City,
+    //   state: team.State,
+    //   wins: team.Wins,
+    //   loss: team.Loss,
+    // })
   }
   else next();
 

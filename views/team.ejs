@@ -7,10 +7,10 @@
     <title>Teams</title>
 </head>
 <body>
-  <h1><%= name %></h1>
-  <h2><%= conf %> Conference</h2>
-  <p><strong>Players</strong>: <%= captain %> and <%= teammate %></p>
-  <p><strong>Location</strong>: <%= city %>, <%= state %></p>
-  <p><strong>Record</strong>: <%= wins %>-<%= loss %></p>
+  <h1><%= team.TeamName %></h1>
+  <h2><%= team.Conference %> Conference</h2>
+  <p><strong>Players</strong>: <%= team.Captain %> and <%= team.Teammate %></p>
+  <p><strong>Location</strong>: <%= team.City %>, <%= team.State %></p>
+  <p><strong>Record</strong>: <%= team.Wins %>-<%= team.Loss %></p>
 </body>
 </html>
