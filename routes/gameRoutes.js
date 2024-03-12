@@ -4,8 +4,8 @@ const games = require('../data/games')
 
 // GET: read all games
 router.get('/', (req, res) => {
-  res.send('GET: read all games')
-  // res.json(games)
+  // res.send('GET: read all games')
+  res.json(games)
   // res.render('games/index', {games})
 })
 
