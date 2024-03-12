@@ -2,6 +2,8 @@
 const express = require('express')
 const app = express();
 const port = 3000;
+const bodyParser = require('body-parser');
+// const teams = require('./data/teams')
 
 // Require routes from routes folder
 const teamRoutes = require('./routes/teamRoutes')
@@ -10,6 +12,10 @@ const teamRoutes = require('./routes/teamRoutes')
 /* DATABASE CONNECTION */
 
 /* MIDDLEWARE */
+
+// BodyParser
+app.use(bodyParser.urlencoded({extended: true}))
+app.use(bodyParser.json({extended: true}))
 
 // serve static files from the styles directory
 app.use(express.static("./styles"));

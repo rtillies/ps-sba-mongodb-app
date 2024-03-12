@@ -1,9 +1,12 @@
 const express = require('express')
 const router = express.Router()
+const teams = require('../data/teams')
+
 
 // GET: read all teams
-router.get('/', (req, res) => {
-  res.send('GET: read all teams')
+router.get('/', (req, res, next) => {
+  // res.send('GET: read all teams')
+  res.json(teams)
 })
 
 // POST: create new team
