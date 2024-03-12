@@ -22,15 +22,15 @@ app.use(bodyParser.json({extended: true}))
 app.use(express.static("./styles"));
 
 // Use Router Middleware - 
-app.use('/api/teams', teamRoutes)
-app.use('/api/games', gameRoutes)
-app.use('/api/conferences', confRoutes)
+app.use('/api/teams/', teamRoutes)
+app.use('/api/games/', gameRoutes)
+app.use('/api/conferences/', confRoutes)
 
 // specify the views directory
 // register the template engine
 app.set("views", "./views"); 
-// app.set("view engine", "pug")
 app.set("view engine", "ejs")
+// app.set("view engine", "pug")
 
 
 // Error handling
