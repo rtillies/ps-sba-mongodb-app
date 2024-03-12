@@ -9,14 +9,10 @@
 <body>
   <h1>Conference Info</h1>
 
-    <ul>
       <% conferences.forEach((conf)=>{
           %>
-            <li>
-              <a href=<%= conf.id %>>
-                <%= conf.name %>
-              </a> 
-              </li>
+            <h2><%= conf.name %></h2>
+            <p><%= conf.description %></p>
           <%
       }) %>
 </body>

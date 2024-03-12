@@ -1,12 +1,12 @@
 const express = require('express')
 const router = express.Router()
-const games = require('../data/conferences')
+const conferences = require('../data/conferences')
 
 // GET: read all conferences
 router.get('/', (req, res) => {
   // res.send('GET: read all conferences')
-  res.json(games)
-  // res.render('games/index', {games})
+  // res.json(confs)
+  res.render('conferences/index', {conferences})
 })
 
 // POST: create new game
@@ -42,7 +42,7 @@ router.post('/', (req, res, next) => {
 // GET: read conference by id
 router.get('/:id', (req, res) => {
   // res.send(`GET: read conference by id ${req.params.id}`)
-  const conf = games.find((g) => g.id == req.params.id)
+  const conf = confs.find((c) => c.id == req.params.id)
   if(conf) {
     res.json(conf)
     // res.render('conferences/conf', {conf});
