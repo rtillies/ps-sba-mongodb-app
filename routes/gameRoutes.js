@@ -11,29 +11,32 @@ router.get('/', (req, res) => {
 
 // POST: create new game
 router.post('/', (req, res, next) => {
-  res.send('POST: create new game')
-  // if(req.body.TeamName && req.body.Conference && req.body.Captain && req.body.Teammate && req.body.City && req.body.State) {
-  //   if (teams.find((t) => t.TeamName == req.body.TeamName)) {
-  //     res.json({ error: `Team Name already exists: ${req.body.TeamName}`})
-  //     return
-  //   }
-  //   const newTeam = {
-  //     ID: teams[teams.length - 1].ID + 1,
-  //     TeamName: req.body.TeamName,
-  //     Conference: req.body.Conference,
-  //     Captain: req.body.Captain,
-  //     Teammate: req.body.Teammate,
-  //     City: req.body.City,
-  //     State: req.body.State,
-  //     Wins: 0,
-  //     Loss: 0
-  //   }
-  //   teams.push(newTeam)
-  //   console.log(`Successful POST: ${newTeam.ID} ${newTeam.TeamName}`);
-  //   res.json(teams[teams.length - 1])
-  // } else {
-  //   res.json({ error: 'Insufficient Data'})
-  // }
+  // res.send('POST: create new game')
+  if(req.body.code && req.body.date && req.body.homeTeam && req.body.awayTeam && req.body.homeScore && req.body.awayScore) {
+    if (games.find((g) => g.code == req.body.code)) {
+      res.json({ error: `Game code already exists: ${g.code}` })
+      return
+    }
+    const winner = req.body.homeScore > req.body.awayScore 
+      ? req.body.homeTeam
+      : req.body.awayTeam
+
+    const newGame = {
+      id: games[games.length - 1].id + 1,
+      code: req.body.code,
+      date: req.body.date,
+      homeTeam: req.body.homeTeam,
+      awayTeam: req.body.awayTeam,
+      homeScore: req.body.homeScore,
+      awayScore: req.body.awayScore,
+      winner: winner
+    }
+    games.push(newGame)
+    console.log(`Successful POST: ${newGame.id} ${newGame.homeTeam} vs ${newGame.awayTeam}`);
+    res.json(games[games.length - 1])
+  } else {
+    res.json({ error: 'Insufficient Data'})
+  }
 })
 
 // GET: read game by id
