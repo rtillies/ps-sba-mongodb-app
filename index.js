@@ -26,7 +26,7 @@ app.use('/api/teams', teamRoutes)
 // specify the views directory
 // register the template engine
 app.set("views", "./views"); 
-// server.set("view engine", "pug")
+app.set("view engine", "pug")
 // server.set("view engine", "ejs")
 
 

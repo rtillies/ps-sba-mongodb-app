@@ -1,10 +1,12 @@
 const express = require('express')
+const server = express()
 const router = express.Router()
 const teams = require('../data/teams')
 
+server.set("view engine", "pug")
 
 // GET: read all teams
-router.get('/', (req, res, next) => {
+router.get('/', (req, res) => {
   // res.send('GET: read all teams')
   res.json(teams)
 })
@@ -40,7 +42,26 @@ router.post('/', (req, res, next) => {
 router.get('/:id', (req, res) => {
   // res.send(`GET: read team by id ${req.params.id}`)
   const team = teams.find((t) => t.ID == req.params.id)
-  if(team) res.json(team)
+  if(team) {
+    // res.json(team)
+      // console.log(teams);
+    res.render("team", {
+      // cheese: "brie",
+      // bread: "corn",
+      name: team.TeamName,
+      conf: team.Conference,
+      captain: team.Captain,
+      teammate: team.Teammate,
+      city: team.City,
+      state: team.State,
+      wins: team.Wins,
+      loss: team.Loss,
+
+      // Teams Name: team.TeamName
+    })
+  // next
+
+  }
   else next();
 
 })
