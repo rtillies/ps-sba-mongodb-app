@@ -4,8 +4,7 @@
   "description": "## Terminal script ```zsh git init npm init -y npm i nodemon --save-dev npm i express npm i body-parser npm i pug npm i ejs touch index.js ```",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+    "start": "nodemon index.js" },
   "keywords": [],
   "author": "",
   "license": "ISC",
