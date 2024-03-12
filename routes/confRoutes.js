@@ -4,8 +4,8 @@ const games = require('../data/conferences')
 
 // GET: read all conferences
 router.get('/', (req, res) => {
-  res.send('GET: read all conferences')
-  // res.json(games)
+  // res.send('GET: read all conferences')
+  res.json(games)
   // res.render('games/index', {games})
 })
 
@@ -41,13 +41,13 @@ router.post('/', (req, res, next) => {
 
 // GET: read conference by id
 router.get('/:id', (req, res) => {
-  res.send(`GET: read conference by id ${req.params.id}`)
-  // const game = games.find((g) => g.id == req.params.id)
-  // if(game) {
-  //   // res.json(game)
-  //   res.render('games/game', {game});
-  // }
-  // else next();
+  // res.send(`GET: read conference by id ${req.params.id}`)
+  const conf = games.find((g) => g.id == req.params.id)
+  if(conf) {
+    res.json(conf)
+    // res.render('conferences/conf', {conf});
+  }
+  else next();
 })
 
 // PATCH: update conferences by id
