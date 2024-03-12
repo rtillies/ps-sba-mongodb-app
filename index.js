@@ -7,6 +7,7 @@ const bodyParser = require('body-parser');
 
 // Require routes from routes folder
 const teamRoutes = require('./routes/teamRoutes')
+const gameRoutes = require('./routes/gameRoutes')
 
 
 /* DATABASE CONNECTION */
@@ -22,6 +23,7 @@ app.use(express.static("./styles"));
 
 // Use Router Middleware - 
 app.use('/api/teams', teamRoutes)
+app.use('/api/games', gameRoutes)
 
 // specify the views directory
 // register the template engine
@@ -37,10 +39,6 @@ app.use((err, req, res, next) => {
 
 /* ROOT ROUTES - no router needed */
 app.get('/', (req, res) => {
-  // response.render("index", {
-  //   cheese: "munster",
-  //   bread: "wheat"
-  // })
   res.send("Root GET Route works")
 })
 
