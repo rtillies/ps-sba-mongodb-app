@@ -44,8 +44,8 @@ router.get('/:id', (req, res) => {
   // res.send(`GET: read game by id ${req.params.id}`)
   const game = games.find((g) => g.id == req.params.id)
   if(game) {
-    // res.render("games/game", {game});
-    res.json(game)
+    // res.json(game)
+    res.render('games/game', {game});
   }
   else next();
 })
