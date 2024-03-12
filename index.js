@@ -4,7 +4,8 @@ const app = express();
 const port = 3000;
 
 // Require routes from routes folder
-// const xyzRoutes = require('./routes/xyzRoutes')
+const teamRoutes = require('./routes/teamRoutes')
+
 
 /* DATABASE CONNECTION */
 
@@ -14,7 +15,7 @@ const port = 3000;
 app.use(express.static("./styles"));
 
 // Use Router Middleware - 
-// app.use(rootPath, fileInRoutesDirectory)
+app.use('/api/teams', teamRoutes)
 
 // specify the views directory
 // register the template engine
@@ -30,11 +31,11 @@ app.use((err, req, res, next) => {
 
 /* ROOT ROUTES - no router needed */
 app.get('/', (req, res) => {
-  response.render("index", {
-    cheese: "munster",
-    bread: "wheat"
-  })
-  // res.send("Root GET Route works")
+  // response.render("index", {
+  //   cheese: "munster",
+  //   bread: "wheat"
+  // })
+  res.send("Root GET Route works")
 })
 
 // Listen to the port
