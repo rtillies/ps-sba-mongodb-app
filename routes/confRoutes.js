@@ -60,15 +60,15 @@ router.patch('/:id', (req, res) => {
 // DELETE: delete conference by id
 router.delete('/:id', (req, res) => {
   // res.send(`DELETE: delete conference by id ${req.params.id}`)
-  // const game = games.find((g, i) => {
-  //   if (g.id == req.params.id) {
-  //     games.splice(i, 1);
-  //     return true;
-  //   }
-  // });
+  const conf = conferences.find((c, i) => {
+    if (c.id == req.params.id) {
+      conferences.splice(i, 1);
+      return true;
+    }
+  });
 
-  // if(game) res.json(game)
-  // else next();
+  if(conf) res.json(conf)
+  else next();
 })
 
 module.exports = router;
