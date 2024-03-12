@@ -40,7 +40,9 @@ app.use((err, req, res, next) => {
 
 /* ROOT ROUTES - no router needed */
 app.get('/', (req, res) => {
-  res.send("Root GET Route works")
+  // res.send("Root GET Route works")
+  // app.use(express.static("public"))
+  res.render('index')
 })
 
 // Listen to the port
