@@ -1,0 +1,13 @@
+h1 {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+ul {
+  /* display as a card */
+  width: 40%;
+}
+
+li {
+  /* display as alternating colored stripes */
+  width: 90%;
+}
