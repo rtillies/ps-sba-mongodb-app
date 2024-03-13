@@ -45,6 +45,12 @@ app.get('/', (req, res) => {
   res.render('index')
 })
 
+// GET: read 
+app.get('/log*', (req, res) => {
+  res.render('login')
+})
+
+
 // Listen to the port
 app.listen(port, () => {
   console.log(`The server is listening on port ${port}`);
