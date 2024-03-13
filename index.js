@@ -39,17 +39,18 @@ app.use((err, req, res, next) => {
 })
 
 /* ROOT ROUTES - no router needed */
+
+// GET: render index for root route
 app.get('/', (req, res) => {
   // res.send("Root GET Route works")
   // app.use(express.static("public"))
   res.render('index')
 })
 
-// GET: read 
+// GET: use regex for all routes log*
 app.get('/log*', (req, res) => {
   res.render('login')
 })
-
 
 // Listen to the port
 app.listen(port, () => {
