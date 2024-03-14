@@ -1,6 +1,6 @@
 h1 {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  /* color: red; */
+  color: red;
 }
 
 ul {
@@ -11,4 +11,5 @@ ul {
 li {
   /* display as alternating colored stripes */
   width: 90%;
+  margin: 20px 0;
 }
