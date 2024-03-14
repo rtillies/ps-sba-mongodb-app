@@ -26,22 +26,54 @@
     <button id="button" type="button" onclick="toggleForm()">Add new team</button>
 
     <div>
-      <form id="form" action="/api/teams" method="POST" hidden>
+      <form id="form" action="/api/teams" method="POST">
         <fieldset>
           <h3>Create New Team</h3>
           <input
             type="text"
             id="name"
             name="name"
-            placeholder="Name"
+            placeholder="Team Name"
             required
           />
           <br /><br />
           <input
             type="text"
-            id="description"
-            name="description"
-            placeholder="Description"
+            id="conference"
+            name="conference"
+            placeholder="Conference"
+            required
+          />
+          <br /><br />
+          <input
+            type="text"
+            id="captain"
+            name="captain"
+            placeholder="Name of first player"
+            required
+          />
+          <br /><br />
+          <input
+            type="text"
+            id="partner"
+            name="partner"
+            placeholder="Name of second player"
+            required
+          />
+          <br /><br />
+          <input
+            type="text"
+            id="city"
+            name="city"
+            placeholder="City of residence"
+            required
+          />
+          <br /><br />
+          <input
+            type="text"
+            id="state"
+            name="state"
+            placeholder="State of residence"
             required
           />
           <br /><br />
