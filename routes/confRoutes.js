@@ -1,6 +1,11 @@
 const express = require('express')
 const router = express.Router()
 const conferences = require('../data/conferences')
+// const form = document.getElementById('addNewForm')
+
+// function toggleForm() {
+//   form.toggleAttribute('hidden')
+// }
 
 // GET: read all conferences
 router.get('/', (req, res) => {

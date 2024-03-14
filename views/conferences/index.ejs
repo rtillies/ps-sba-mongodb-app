@@ -10,19 +10,53 @@
   <body>
     <h1>Conference Info</h1>
     <% conferences.forEach((conf)=>{ %>
-      <h2><%= conf.name %></h2>
-      <p><%= conf.description %></p>
+    <h2><%= conf.name %></h2>
+    <p><%= conf.description %></p>
     <% }) %>
-    <form action="/api/conferences" method="POST">
-      <fieldset>
-        <h3>Create New Conference</h3>
-        <input type='text' id ='name' name='name' placeholder="Name" required>
-        <br><br>
-        <input type='text' id ='description' name='description' placeholder="Description"  required>
-        <br><br>
-        <button type="reset">Reset</button>
-        <button type="submit">Submit</button>
-      </fieldset>
-    </form>
+
+    <button id="button" type="button" onclick="toggleForm()">Add new conference</button>
+
+    <div>
+      <form id="form" action="/api/conferences" method="POST" hidden>
+        <fieldset>
+          <h3>Create New Conference</h3>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Name"
+            required
+          />
+          <br /><br />
+          <input
+            type="text"
+            id="description"
+            name="description"
+            placeholder="Description"
+            required
+          />
+          <br /><br />
+          <button type="reset">Reset</button>
+          <button type="submit">Submit</button>
+        </fieldset>
+      </form>
+    </div>
+
+    <script>
+      const form = document.getElementById('form')
+      const button = document.getElementById('button')
+      console.log(form);
+      console.log(button);
+      
+      function toggleForm() {
+        form.toggleAttribute("hidden");
+        if (form.hidden) {
+          button.innerText = "Add new conference"
+        } else {
+          button.innerText = "Cancel new conference"
+        }
+      }
+    </script>
+
   </body>
 </html>
