@@ -14,10 +14,10 @@
       <% teams.forEach((team)=>{
           %>
             <li>
-              <a href=<%= team.ID %>>
-                <%= team.TeamName %>
+              <a href=<%= team.id %>>
+                <%= team.name %>
               </a> 
-                (<%= team.Wins %>-<%= team.Loss %>)
+                (<%= team.wins %>-<%= team.loss %>)
               </li>
           <%
       }) %>
