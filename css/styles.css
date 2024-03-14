@@ -13,3 +13,11 @@ li {
   width: 90%;
   margin: 20px 0;
 }
+
+fieldset {
+  width: 30%;
+}
+
+fieldset input {
+  width: 70%;
+}
