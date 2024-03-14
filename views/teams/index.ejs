@@ -54,16 +54,11 @@
     <script>
       const form = document.getElementById('form')
       const button = document.getElementById('button')
-      console.log(form);
-      console.log(button);
       
       function toggleForm() {
         form.toggleAttribute("hidden");
-        if (form.hidden) {
-          button.innerText = "Add new team"
-        } else {
-          button.innerText = "Cancel new team"
-        }
+        const verb = form.hidden ? "Add" : "Cancel"
+        button.innerText = `${verb} new team`
       }
     </script>
 
