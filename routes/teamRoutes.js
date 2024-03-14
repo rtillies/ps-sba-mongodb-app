@@ -13,24 +13,24 @@ router.get('/', (req, res) => {
 // POST: create new team
 router.post('/', (req, res, next) => {
   // res.send('POST: create new team')
-  if(req.body.TeamName && req.body.Conference && req.body.Captain && req.body.Teammate && req.body.City && req.body.State) {
-    if (teams.find((t) => t.TeamName == req.body.TeamName)) {
-      res.json({ error: `Team Name already exists: ${req.body.TeamName}`})
+  if(req.body.name && req.body.conference && req.body.captain && req.body.partner && req.body.city && req.body.state) {
+    if (teams.find((t) => t.name == req.body.name)) {
+      res.json({ error: `Team Name already exists: ${req.body.name}`})
       return
     }
     const newTeam = {
-      ID: teams[teams.length - 1].ID + 1,
-      TeamName: req.body.TeamName,
-      Conference: req.body.Conference,
-      Captain: req.body.Captain,
-      Teammate: req.body.Teammate,
-      City: req.body.City,
-      State: req.body.State,
-      Wins: 0,
-      Loss: 0
+      id: teams[teams.length - 1].id + 1,
+      name: req.body.name,
+      conference: req.body.conference,
+      captain: req.body.captain,
+      partner: req.body.partner,
+      city: req.body.city,
+      state: req.body.state,
+      wins: 0,
+      loss: 0
     }
     teams.push(newTeam)
-    console.log(`Successful POST: ${newTeam.ID} ${newTeam.TeamName}`);
+    console.log(`Successful POST: ${newTeam.id} ${newTeam.name}`);
     res.json(teams[teams.length - 1])
   } else {
     res.json({ error: 'Insufficient Data'})
@@ -40,19 +40,9 @@ router.post('/', (req, res, next) => {
 // GET: read team by id
 router.get('/:id', (req, res) => {
   // res.send(`GET: read team by id ${req.params.id}`)
-  const team = teams.find((t) => t.ID == req.params.id)
+  const team = teams.find((t) => t.id == req.params.id)
   if(team) {
     res.render("teams/team", {team});
-    // res.render("team", {
-    //   name: team.TeamName,
-    //   conf: team.Conference,
-    //   captain: team.Captain,
-    //   teammate: team.Teammate,
-    //   city: team.City,
-    //   state: team.State,
-    //   wins: team.Wins,
-    //   loss: team.Loss,
-    // })
   }
   else next();
 
@@ -62,7 +52,7 @@ router.get('/:id', (req, res) => {
 router.patch('/:id', (req, res) => {
   // res.send(`PATCH: update team by id ${req.params.id}`)
   const team = teams.find((t, i) => {
-    if (t.ID == req.params.id) {
+    if (t.id == req.params.id) {
       for (const key in req.body) {
         teams[i][key] = req.body[key];
       }
@@ -77,7 +67,7 @@ router.patch('/:id', (req, res) => {
 router.delete('/:id', (req, res) => {
   // res.send(`DELETE: delete team by id ${req.params.id}`)
   const team = teams.find((t, i) => {
-    if (t.ID == req.params.id) {
+    if (t.id == req.params.id) {
       teams.splice(i, 1);
       return true;
     }
