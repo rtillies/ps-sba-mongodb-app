@@ -31,7 +31,9 @@ router.post('/', (req, res, next) => {
     }
     teams.push(newTeam)
     console.log(`Successful POST: ${newTeam.id} ${newTeam.name}`);
-    res.json(teams[teams.length - 1])
+    // res.json(teams[teams.length - 1])
+    res.render('teams/index', {teams})
+
   } else {
     res.json({ error: 'Insufficient Data'})
   }
