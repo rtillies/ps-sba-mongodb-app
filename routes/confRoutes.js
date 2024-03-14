@@ -29,7 +29,8 @@ router.post('/', (req, res, next) => {
     }
     conferences.push(newConf)
     console.log(`Successful POST: ${newConf.id} ${newConf.name}`);
-    res.json(conferences[conferences.length - 1])
+    // res.json(conferences[conferences.length - 1])
+    res.render('conferences/index', {conferences})
   } else {
     res.json({ error: 'Insufficient Data'})
   }
