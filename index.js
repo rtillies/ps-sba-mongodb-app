@@ -18,8 +18,8 @@ const confRoutes = require('./routes/confRoutes')
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json({extended: true}))
 
-// serve static files from the styles directory
-app.use(express.static("./styles"));
+// serve static files from the css directory
+app.use('/css', express.static('css'));
 
 // Use Router Middleware - 
 app.use('/api/teams/', teamRoutes)
