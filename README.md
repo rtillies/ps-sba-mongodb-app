@@ -1,18 +1,18 @@
-# SBA 318: Express Server Application
+# SBA 319: MongoDB Database Application
 
 * **Name**: Richard Tillies
-* **Date**: March 15, 2024
+* **Date**: April 2, 2024
 * **Requirements**: 
-[SBA Express Server Application](docs/sba-express-server-app.pdf)
+[SBA MongoDB Database Application](docs/sba-mongodb-app.pdf)
 
 ## Objectives
 
-* Create a server application with Node and Express.
-* Create a RESTful API using Express.
-* Create Express middleware.
-* Use Express middleware.
-* Use a template engine to render views with Express.
-* Interact with a self-made API through HTML forms.
+* Create a server application with Node, Express, and MongoDB.
+* Create a CRUD API using Express and MongoDB.
+* Create MongoDB indexes.
+* Use MongoDB indexing to make efficient queries.
+* Create MongoDB validation rules.
+* Use MongoDB validation to ensure data consistency.
 
 ## Instructions
 
