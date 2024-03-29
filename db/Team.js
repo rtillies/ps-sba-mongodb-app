@@ -9,8 +9,14 @@ const teamSchema = new mongoose.Schema({
   captain: String,
   partner: String,
   location: String,
-  wins: Number,
-  loss: Number,
+  wins: {
+    type: Number,
+    min: 0,
+  },
+  loss: {
+    type: Number,
+    min: 0,
+  },
   createdAt: {
     type: Date,
     immutable: true,
@@ -21,5 +27,22 @@ const teamSchema = new mongoose.Schema({
     default: () => Date.now(),
   },
 })
+
+teamSchema.statics.findByName = function(name) {
+  return this.find({name: new RegExp(name, 'i')})
+}
+
+teamSchema.query.byName = function(name) {
+  return this.where({name: new RegExp(name, 'i')})
+}
+
+teamSchema.pre('save', function(next) {
+  this.updatedAt = Date.now()
+  next()
+}) 
+
+teamSchema.methods.updateTeam = function() {
+  console.log(`Team ${this.name} updated.`);
+}
 
 module.exports = mongoose.model("Team", teamSchema);
