@@ -17,9 +17,9 @@ const app = express();
 // const port = 3000;
 
 // import Schemas
-const Conference = require("./db/Conference");
-const Team = require("./db/Team");
-const Game = require("./db/Game");
+const Conference = require('./db/Conference');
+const Team = require('./db/Team');
+const Game = require('./db/Game');
 
 // import data to populate database
 const conferences = require('./data/conferences');
