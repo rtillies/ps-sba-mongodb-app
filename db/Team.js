@@ -3,7 +3,8 @@ const mongoose = require("mongoose");
 const teamSchema = new mongoose.Schema({
   name: String,
   conference: {
-    type: mongoose.SchemaTypes.ObjectId,
+    // type: mongoose.SchemaTypes.ObjectId,
+    type: mongoose.SchemaTypes.String,
     ref: "Conference",
   },
   captain: String,

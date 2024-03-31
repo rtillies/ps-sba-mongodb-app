@@ -3,11 +3,14 @@ const mongoose = require("mongoose");
 const gameSchema = new mongoose.Schema({
   date: String,
   homeTeam: {
-    type: mongoose.SchemaTypes.ObjectId,
+    // type: mongoose.SchemaTypes.ObjectId,
+    type: mongoose.SchemaTypes.String,
     ref: "Team",
+    required: true,
   },
   awayTeam: {
-    type: mongoose.SchemaTypes.ObjectId,
+    // type: mongoose.SchemaTypes.ObjectId,
+    type: mongoose.SchemaTypes.String,
     ref: "Team",
     required: true,
   },
@@ -20,7 +23,8 @@ const gameSchema = new mongoose.Schema({
     required: true,
   },
   winner: {
-    type: mongoose.SchemaTypes.ObjectId,
+    // type: mongoose.SchemaTypes.ObjectId,
+    type: mongoose.SchemaTypes.String,
     ref: "Team",
     required: true,
   },
