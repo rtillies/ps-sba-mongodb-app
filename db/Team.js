@@ -1,7 +1,11 @@
 const mongoose = require("mongoose");
 
 const teamSchema = new mongoose.Schema({
-  name: String,
+  name: {
+    type: String,
+    unique: true, // unique index
+    // index: true,
+  },
   conference: {
     // type: mongoose.SchemaTypes.ObjectId,
     type: mongoose.SchemaTypes.String,

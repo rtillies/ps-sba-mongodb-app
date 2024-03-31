@@ -1,7 +1,10 @@
 const mongoose = require("mongoose");
 
 const conferenceSchema = new mongoose.Schema({
-  name: String,
+  name: {
+    type: String,
+    unique: true, // unique index
+  },
   description: String,
   createdAt: {
     type: Date,

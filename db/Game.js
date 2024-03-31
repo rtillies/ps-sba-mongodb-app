@@ -7,12 +7,14 @@ const gameSchema = new mongoose.Schema({
     type: mongoose.SchemaTypes.String,
     ref: "Team",
     required: true,
+    index: true,
   },
   awayTeam: {
     // type: mongoose.SchemaTypes.ObjectId,
     type: mongoose.SchemaTypes.String,
     ref: "Team",
     required: true,
+    index: true,
   },
   homeScore: {
     type: Number,
@@ -27,6 +29,7 @@ const gameSchema = new mongoose.Schema({
     type: mongoose.SchemaTypes.String,
     ref: "Team",
     required: true,
+    index: true,
   },
   createdAt: {
     type: Date,
