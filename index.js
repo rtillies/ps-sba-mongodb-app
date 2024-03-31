@@ -14,12 +14,12 @@ const dotenv = require('dotenv')
 // Environment variables
 dotenv.config();
 const app = express();
-const port = 3000;
+// const port = 3000;
 
 // import Schemas
+const Conference = require("./db/Conference");
 const Team = require("./db/Team");
 const Game = require("./db/Game");
-const Conference = require("./db/Conference");
 
 // import data to populate database
 const conferences = require('./data/conferences');
@@ -32,7 +32,6 @@ const games = require('./data/games');
 async function main() {
   portListen();
   connectDB();
-  // await mongoose.dropDatabase();
 
   // populate database
   populateDB(conferences, Conference)
@@ -44,16 +43,6 @@ async function addToDB(item, model) {
   try {
     const x = await model.create(item);
     console.log(x);
-  } catch (e) {
-    console.log(e.message);
-  }
-}
-
-async function addTeam(team) {
-  try {
-    const conf = await Conference.findOne({name: team.conference})
-    const newTeam = {...team, conference: conf}
-    addToDB(newTeam, Team)
   } catch (e) {
     console.log(e.message);
   }
@@ -79,6 +68,7 @@ async function populateDB(array, model) {
 }
 
 function portListen() {
+  const port = process.env.PORT
   app.listen(port, () => {
     console.log(`The server is listening on port ${port}`);
   })
@@ -98,3 +88,14 @@ function closeDB() {
 
 // Run
 main();
+
+// async function addTeam(team) {
+//   try {
+//     const conf = await Conference.findOne({name: team.conference})
+//     const newTeam = {...team, conference: conf}
+//     addToDB(newTeam, Team)
+//   } catch (e) {
+//     console.log(e.message);
+//   }
+// }
+
