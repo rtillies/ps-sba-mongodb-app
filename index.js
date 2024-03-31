@@ -10,12 +10,11 @@ const dotenv = require('dotenv')
 
 const app = express();
 const port = 3000;
-// dotenv.config();
 
-// // Require routes from routes folder
-// const teamRoutes = require('./routes/teamRoutes')
-// const gameRoutes = require('./routes/gameRoutes')
-// const confRoutes = require('./routes/confRoutes')
+// import Schemas
+const Team = require("./db/Team");
+const Game = require("./db/Game");
+const Conference = require("./db/Conference");
 
 // Environment variables
 dotenv.config();
@@ -30,12 +29,10 @@ function portDB() {
   app.listen(port, () => {
     console.log(`The server is listening on port ${port}`);
   })
-  
-  mongoose.connect(process.env.ATLAS_URI)
-    .then(console.log("Connected!"))
+
+  mongoose.connect(process.env.ATLAS_URI, {})
+    .then(console.log(`Connected! ${mongoose.connection.db}`))
     .catch(e => console.error(e.message));
 }
-
-// Listen to the port
 
 main();
