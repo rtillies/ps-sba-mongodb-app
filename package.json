@@ -1,7 +1,7 @@
 {
-  "name": "sba-express-server",
+  "name": "sba-mongodb-app",
   "version": "1.0.0",
-  "description": "## Terminal script ```zsh git init npm init -y npm i nodemon --save-dev npm i express npm i body-parser npm i pug npm i ejs touch index.js ```",
+  "description": "SBA 319: MongoDB Database Application",
   "main": "index.js",
   "scripts": {
     "start": "nodemon index.js"
