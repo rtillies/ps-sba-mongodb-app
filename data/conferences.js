@@ -1,14 +1,29 @@
 const conferences = [
   {
     // "id": 1,
-    "name": "South",
-    "description": "States below the Mason-Dixon line"
+    "name": "East",
+    "description": "States in the Eastern time zone"
   },
   {
     // "id": 2,
-    "name": "North",
-    "description": "U.S. states north of Washington DC"
-  }
+    "name": "Central",
+    "description": "States in the Central time zone"
+  },
+  {
+    // "id": 3,
+    "name": "Mountain",
+    "description": "States in the Mountain time zone"
+  },
+  {
+    // "id": 1,
+    "name": "West",
+    "description": "States in the Pacific time zone"
+  },
+  {
+    // "id": 1,
+    "name": "International",
+    "description": "Teams outside the U.S."
+  },
 ]
 
 module.exports = conferences;
