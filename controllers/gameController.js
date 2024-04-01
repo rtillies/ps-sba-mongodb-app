@@ -28,17 +28,17 @@ const setGame = asyncHandler(async (req, res) => {
   res.status(200).json(game);
 });
 
-const getGamesByTeam = asyncHandler(async (req, res) => {
-  const games = await Game.findByTeam(req.params.team)
+const getGamesByWinner = asyncHandler(async (req, res) => {
+  const games = await Game.findByWinner(req.params.team)
   if (games.length === 0) {
     res.status(400);
-    throw new Error(`Game not found: ${req.params.name}`);
+    throw new Error(`No winning games found: ${req.params.name}`);
   }
-  res.status(200).json(games.length)
+  res.status(200).json(games)
 });
 
 module.exports = {
   getGames,
   setGame,
-  getGamesByTeam,
+  getGamesByWinner,
 }

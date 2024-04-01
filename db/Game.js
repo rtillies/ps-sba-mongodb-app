@@ -52,6 +52,12 @@ gameSchema.index(
   { unique: true }
 );
 
+gameSchema.statics.findByWinner = function (team) {
+  return this.find(
+    { winner: new RegExp(team, "i") }
+  );
+};
+
 gameSchema.statics.findByTeam = function (team) {
   return this.find({
     $or: [
@@ -59,6 +65,12 @@ gameSchema.statics.findByTeam = function (team) {
       { awayTeam: new RegExp(team, "i") },
     ],
   });
+};
+
+gameSchema.query.byWinner = function (team) {
+  return this.where(
+    { winner: new RegExp(team, "i") },
+  );
 };
 
 gameSchema.query.byTeam = function (team) {
