@@ -31,9 +31,19 @@ const getConferenceByName = asyncHandler(async (req, res) => {
   res.status(200).json(conf)
 });
 
-const updateConference = (req, res) => {
-  res.status(200).json({message: `Update ${req.params.name} Conference`})
-}
+const updateConference = asyncHandler(async (req, res) => {
+  const conf = await Conference.findByName(req.params.name)
+
+  if (!conf) {
+    res.status(400);
+    throw new Error(`Conference not found: ${req.params.name}`);
+  }
+
+  const updatedConference = await Conference.findByIdAndUpdate(
+    conf._id, req.body, { new: true, }
+  );
+  res.status(200).json(updatedConference)
+});
 
 const deleteConference = (req, res) => {
   res.status(200).json({message: `Delete ${req.params.name} Conference`})
