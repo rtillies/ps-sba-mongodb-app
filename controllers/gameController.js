@@ -7,21 +7,25 @@ const getGames = asyncHandler(async (req, res) => {
 });
 
 const setGame = asyncHandler(async (req, res) => {
-  // if (!req.body.name || !req.body.conference || !req.body.captain || 
-  //     !req.body.partner || !req.body.location) {
-  //   res.status(400);
-  //   throw new Error('Game required information: Name, Conference, Captain, Partner, Location');
-  // }
-  // const Game = await Game.create({
-  //   name: req.body.name,
-  //   conference: req.body.conference,
-  //   captain: req.body.captain,
-  //   partner: req.body.partner,
-  //   location: req.body.location,
-  //   wins: 0,
-  //   loss: 0,
-  // });
-  // res.status(200).json(Game);
+  if (!req.body.date || !req.body.homeTeam || !req.body.awayTeam || 
+      !req.body.homeScore || !req.body.awayScore) {
+    res.status(400);
+    throw new Error(`Game required information: 
+      Date, Home Team, Away Team, Home Score, Away Score`);
+  }
+
+  const winner = req.body.homeScore > req.body.awayScore 
+    ? req.body.homeTeam : req.body.awayTeam
+
+  const game = await Game.create({
+    date: req.body.date,
+    homeTeam: req.body.homeTeam,
+    awayTeam: req.body.awayTeam,
+    homeScore: req.body.homeScore,
+    awayScore: req.body.awayScore,
+    winner: winner,
+  });
+  res.status(200).json(game);
 });
 
 const getGamesByTeam = asyncHandler(async (req, res) => {
