@@ -85,7 +85,7 @@ function portListen() {
 
 async function connectDB() {
   const conn = mongoose.connect(process.env.ATLAS_URI)
-    .then(console.log(`Connected! ${mongoose.connection.db}`))
+    .then(console.log(`Connected!`))
     .catch(e => console.error(e.message));
 
   // await conn.dropDatabase();
