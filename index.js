@@ -29,6 +29,11 @@ const games = require('./data/games');
 // import teams from './data/teams';
 // import games from './data/games';
 
+app.use(express.json())
+app.use(express.urlencoded({extended: false}))
+
+app.use('/api/conferences', require('./routes/conferenceRoutes'))
+
 async function main() {
   portListen();
   connectDB();
@@ -42,7 +47,7 @@ async function main() {
 async function addToDB(item, model) {
   try {
     const x = await model.create(item);
-    console.log(x);
+    // console.log(x);
   } catch (e) {
     console.log(e.message);
   }
