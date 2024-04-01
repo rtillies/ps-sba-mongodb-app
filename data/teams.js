@@ -25,7 +25,7 @@ const teams = [
     "conference": "East",
     "captain": "Reece",
     "partner": "Dee",
-    "city": "Dallas, TX",
+    "location": "Dallas, TX",
     "wins": 1,
     "loss": 5
   },
