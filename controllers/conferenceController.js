@@ -9,24 +9,20 @@ const getConferences = asyncHandler(async (req, res) => {
 const setConference = asyncHandler(async (req, res) => {
   if (!req.body.name) {
     res.status(400);
-    throw new Error('Please add name field');
+    throw new Error('Conference name is required');
   }
   const conf = await Conference.create({
     name: req.body.name,
     description: req.body.description,
   });
   res.status(200).json(conf);
-
-// res.status(200).json({message: 'Set Conference'})
 });
 
 const getConferenceByName = asyncHandler(async (req, res) => {
   const conf = await Conference.findByName(req.params.name)
   if (!conf) {
-    res.status(400)
-      .json({message: `Conference not found: ${req.params.name}`});
-    // res.status(400);
-    // throw new Error(`Conference not found: ${req.params.name}`);
+    res.status(400);
+    throw new Error(`Conference not found: ${req.params.name}`);
   }
   res.status(200).json(conf)
 });
@@ -45,9 +41,17 @@ const updateConference = asyncHandler(async (req, res) => {
   res.status(200).json(updatedConference)
 });
 
-const deleteConference = (req, res) => {
-  res.status(200).json({message: `Delete ${req.params.name} Conference`})
-}
+const deleteConference = asyncHandler(async (req, res) => {
+  const conf = await Conference.findByName(req.params.name)
+  if (!conf) {
+    res.status(400);
+    throw new Error(`Conference not found: ${req.params.name}`);
+  }
+
+  await Conference.deleteOne({name: req.params.name})
+
+  res.status(200).json({message: `${req.params.name} Conference deleted`})
+});
 
 module.exports = {
   getConferences,
