@@ -1,9 +1,10 @@
 const asyncHandler = require('express-async-handler');
 const Conference = require('../db/Conference')
 
-const getConferences = (req, res) => {
-  res.status(200).json({message: 'Get Conferences'})
-}
+const getConferences = asyncHandler(async (req, res) => {
+  const confs = await Conference.find();
+  res.status(200).json(confs)
+});
 
 const setConference = asyncHandler(async (req, res) => {
   if (!req.body.name) {
@@ -17,11 +18,18 @@ const setConference = asyncHandler(async (req, res) => {
   res.status(200).json(conf);
 
 // res.status(200).json({message: 'Set Conference'})
-})
+});
 
-const getConferenceByName = (req, res) => {
-  res.status(200).json({message: `Get ${req.params.name} Conference`})
-}
+const getConferenceByName = asyncHandler(async (req, res) => {
+  const conf = await Conference.findByName(req.params.name)
+  if (!conf) {
+    res.status(400)
+      .json({message: `Conference not found: ${req.params.name}`});
+    // res.status(400);
+    // throw new Error(`Conference not found: ${req.params.name}`);
+  }
+  res.status(200).json(conf)
+});
 
 const updateConference = (req, res) => {
   res.status(200).json({message: `Update ${req.params.name} Conference`})
