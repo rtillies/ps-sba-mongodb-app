@@ -5,19 +5,19 @@ const Games = require('../data/Games')
 const { 
   getGames, 
   setGame, 
-  getGameByName, 
-  updateGame, 
-  deleteGame 
+  getGamesByTeam, 
+  // updateGame, 
+  // deleteGame 
 } = require ('../controllers/gameController')
 
 router.route('/')
   .get(getGames)
   .post(setGame)
 
-router.route('/:winner')
-  .get(getGameByName)
-  .patch(updateGame)
-  .delete(deleteGame)
+router.route('/:team')
+  .get(getGamesByTeam)
+  // .patch(updateGame)
+  // .delete(deleteGame)
   
 module.exports = router;
 
