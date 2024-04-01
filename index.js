@@ -63,8 +63,10 @@ function portListen() {
   })
 }
 
+// Need connection string
 async function connectDB() {
-  const conn = mongoose.connect(process.env.ATLAS_URI)
+  const URI = '<connectionString>' // or use .env file
+  const conn = mongoose.connect(process.env.ATLAS_URI || URI)
     .then(console.log(`Connected!`))
     .catch(e => console.error(e.message));
 }
