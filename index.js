@@ -28,10 +28,8 @@ app.use('/api/conferences', require('./routes/conferenceRoutes'))
 app.use('/api/teams', require('./routes/teamRoutes'))
 app.use('/api/games', require('./routes/gameRoutes'))
 
-// Main function
-// listen to port
-// connect to database
-// populate database
+// Main function: 
+// listen to port, connect to database, populate database
 async function main() {
   portListen();
   connectDB();
