@@ -10,7 +10,8 @@ const setTeam = asyncHandler(async (req, res) => {
   if (!req.body.name || !req.body.conference || !req.body.captain || 
       !req.body.partner || !req.body.location) {
     res.status(400);
-    throw new Error('Team required information: Name, Conference, Captain, Partner, Location');
+    throw new Error(`Team required information: 
+      Name, Conference, Captain, Partner, Location`);
   }
   const team = await Team.create({
     name: req.body.name,
