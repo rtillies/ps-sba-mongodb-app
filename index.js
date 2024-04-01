@@ -35,6 +35,7 @@ app.use(express.urlencoded({extended: false}))
 app.use(errorHandler);
 
 app.use('/api/conferences', require('./routes/conferenceRoutes'))
+app.use('/api/teams', require('./routes/teamRoutes'))
 
 async function main() {
   portListen();
