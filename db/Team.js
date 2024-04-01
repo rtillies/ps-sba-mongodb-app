@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const teamSchema = new mongoose.Schema({
   name: {
     type: String,
+    required: true,
     unique: true, // unique index
     // index: true,
   },
@@ -10,9 +11,16 @@ const teamSchema = new mongoose.Schema({
     // type: mongoose.SchemaTypes.ObjectId,
     type: mongoose.SchemaTypes.String,
     ref: "Conference",
+    required: true,
   },
-  captain: String,
-  partner: String,
+  captain: {
+    type: String,
+    required: true,
+  },
+  partner: {
+    type: String,
+    required: true,
+  },
   location: String,
   wins: {
     type: Number,
@@ -34,7 +42,7 @@ const teamSchema = new mongoose.Schema({
 })
 
 teamSchema.statics.findByName = function(name) {
-  return this.find({name: new RegExp(name, 'i')})
+  return this.findOne({name: new RegExp(name, 'i')})
 }
 
 teamSchema.query.byName = function(name) {
