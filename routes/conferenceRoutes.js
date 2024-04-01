@@ -1,12 +1,25 @@
 const express = require('express')
 const router = express.Router()
 const conferences = require('../data/conferences')
-// const form = document.getElementById('addNewForm')
+const { 
+  getConferences, 
+  setConference, 
+  getConferenceByName, 
+  updateConference, 
+  deleteConference 
+} = require ('../controllers/conferenceController')
 
-// function toggleForm() {
-//   form.toggleAttribute('hidden')
-// }
+router.route('/')
+  .get(getConferences)
+  .post(setConference)
 
+router.route('/:name')
+  .get(getConferenceByName)
+  .patch(updateConference)
+  .delete(deleteConference)
+  
+module.exports = router;
+  
 // GET: read all conferences
 router.get('/', (req, res) => {
   // res.send('GET: read all conferences')
