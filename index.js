@@ -14,6 +14,7 @@ const dotenv = require('dotenv')
 // Environment variables
 dotenv.config();
 const app = express();
+const { errorHandler } = require('./middleware/errorHandler')
 // const port = 3000;
 
 // import Schemas
@@ -31,6 +32,7 @@ const games = require('./data/games');
 
 app.use(express.json())
 app.use(express.urlencoded({extended: false}))
+app.use(errorHandler);
 
 app.use('/api/conferences', require('./routes/conferenceRoutes'))
 
