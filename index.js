@@ -36,6 +36,7 @@ app.use(errorHandler);
 
 app.use('/api/conferences', require('./routes/conferenceRoutes'))
 app.use('/api/teams', require('./routes/teamRoutes'))
+app.use('/api/games', require('./routes/gameRoutes'))
 
 async function main() {
   portListen();
