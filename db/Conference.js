@@ -19,7 +19,7 @@ const conferenceSchema = new mongoose.Schema({
 });
 
 conferenceSchema.statics.findByName = function(name) {
-  return this.find({name: new RegExp(name, 'i')})
+  return this.findOne({name: new RegExp(name, 'i')})
 }
 
 conferenceSchema.query.byName = function(name) {
